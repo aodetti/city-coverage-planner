@@ -10,37 +10,36 @@
     "ML": 28,
     "MR": 28,
     "MB": 52,
-    "ANGLE": 35
+    "ANGLE": 20
   },
   "central": {
-    "columns": [3, 4, 5, 6, 7, 8, 9, 10],
-    "rows": [2, 3, 4]
+    "columns": [2, 3, 4, 5, 6, 7, 8],
+    "rows": [3, 4, 5]
   },
   "horizontal_streets": [
     { "name": "Calle A", "av": false },
-    { "name": "Av. B", "av": true },
-    { "name": "Calle C", "av": false },
+    { "name": "Calle B", "av": false },
+    { "name": "Av. C", "av": true },
     { "name": "Calle D", "av": false },
     { "name": "Calle E", "av": false },
     { "name": "Calle F", "av": false },
     { "name": "Calle G", "av": false },
-    { "name": "Av. H", "av": true }
+    { "name": "Av. H", "av": true },
+    { "name": "Calle I", "av": false },
+    { "name": "Calle J", "av": false }
   ],
   "vertical_streets": [
     { "name": "Calle 1", "av": false },
     { "name": "Calle 2", "av": false },
     { "name": "Calle 3", "av": false },
-    { "name": "Av. 4", "av": true },
-    { "name": "Calle 5", "av": false },
+    { "name": "Calle 4", "av": false },
+    { "name": "Av. 5", "av": true },
     { "name": "Calle 6", "av": false },
     { "name": "Calle 7", "av": false },
     { "name": "Calle 8", "av": false },
-    { "name": "Calle 9", "av": false },
+    { "name": "Av. 9", "av": true },
     { "name": "Calle 10", "av": false },
     { "name": "Calle 11", "av": false },
-    { "name": "Calle 12", "av": false },
-    { "name": "Calle 13", "av": false },
-    { "name": "Calle 14", "av": false },
-    { "name": "Calle 15", "av": false }
+    { "name": "Calle 12", "av": false }
   ]
 }

@@ -54,8 +54,13 @@ func TestFullAPIFlow(t *testing.T) {
 	if unmarshalErr := json.Unmarshal(recorder.Body.Bytes(), &mapPayload); unmarshalErr != nil {
 		t.Fatal(unmarshalErr)
 	}
-	if mapPayload.NumBlocks != 98 {
-		t.Fatalf("num_blocks = %d, want 98", mapPayload.NumBlocks)
+	// Map-agnostic: the grid must be non-empty and internally consistent
+	// (num_blocks = cols * rows), whatever map is embedded.
+	if mapPayload.Cols <= 0 || mapPayload.Rows <= 0 {
+		t.Fatalf("empty grid: cols=%d rows=%d", mapPayload.Cols, mapPayload.Rows)
+	}
+	if mapPayload.NumBlocks != mapPayload.Cols*mapPayload.Rows {
+		t.Fatalf("num_blocks = %d, want cols*rows = %d", mapPayload.NumBlocks, mapPayload.Cols*mapPayload.Rows)
 	}
 
 	// Empty worker list.

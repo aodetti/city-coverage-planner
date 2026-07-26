@@ -28,6 +28,12 @@ make test  GO=$HOME/go-sdk/go/bin/go   # go test ./... inside backend/
 make all   GO=$HOME/go-sdk/go/bin/go   # cross-compile release binaries -> bin/
 ```
 
+Per-team builds bake a specific map into the binary via `MAP=` (with `APP=` to
+name it): `make build MAP=path/to/map.json APP=Coverage-TeamA`. `MAP` swaps the
+embedded `map.default.json` for that build and restores it afterwards (backup is
+`*.bak`, gitignored), so the tree stays clean. Keep tests map-agnostic — assert
+grid consistency (e.g. `num_blocks == cols*rows`), not a hardcoded size.
+
 Go-only checks (fast, no frontend):
 ```sh
 cd backend && $HOME/go-sdk/go/bin/go build ./... && $HOME/go-sdk/go/bin/go vet ./... && $HOME/go-sdk/go/bin/go test ./...

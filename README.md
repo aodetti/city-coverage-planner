@@ -121,8 +121,29 @@ Notes:
   zones at every hour, so `central` indices must fall inside the grid.
 - `av: true` draws a street as a wider avenue.
 - The planning rules (four zones, six workers, three shifts) are tuned for a
-  grid roughly the size of the example (15 × 8 streets). Very different grid
-  sizes still produce a plan but may not hit every balance guarantee.
+  grid roughly the size of the example. Very different grid sizes still produce
+  a plan but may not hit every balance guarantee.
+
+### Per-team builds (baking a map into the binary)
+
+To hand a team a single self-contained executable with their city already
+inside it, bake a map at build time with `MAP=` (and name the binary with
+`APP=`):
+
+```sh
+# one binary for this machine
+make build MAP=maps/teamA.json APP=Coverage-TeamA
+
+# cross-compiled release binaries (Windows/macOS/Linux) for one team
+make all   MAP=maps/teamB.json APP=Coverage-TeamB
+```
+
+`MAP` temporarily replaces the embedded example for that build only — the
+committed example map is restored afterwards, so the working tree stays clean.
+Without `MAP`, the built-in generic example is embedded. A baked binary can
+still be pointed at a different map at runtime via `MAP_CONFIG` or a `map.json`
+beside it (see the resolution order above), so the embedded map is just the
+default.
 
 ## Development
 
