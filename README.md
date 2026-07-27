@@ -39,6 +39,11 @@ else with the same problem — there's no company, product, or support behind it
   split into four balanced, contiguous zones and workers are spread across three
   shifts; generation is deterministic per random seed, and *Replanificar*
   reshuffles for a different valid plan.
+- **Intentionally unpredictable assignments** — the zone shapes and the
+  worker-to-zone/shift assignments are deliberately re-randomised every week, so
+  they can look irregular or "off" from one plan to the next. That is by design:
+  coverage should not be predictable, so a worker can't anticipate (or game)
+  where they'll be posted next week.
 - **Always-covered centre** — the central district is guaranteed to be covered by
   two different people (two colours) at every hour of the day, including the thin
   single-shift windows.
@@ -64,7 +69,9 @@ else with the same problem — there's no company, product, or support behind it
   rectangular grid of blocks. Diagonal avenues, curves, coastline/rivers and
   irregular blocks are **not** represented — a real city is approximated to the
   nearest grid. It fits the classic checkerboard downtown (common in
-  Latin-American and Manhattan-style cities) and not much else.
+  Latin-American and Manhattan-style cities) and not much else. This was a
+  deliberate scope decision, not an oversight: the city this tool was actually
+  built for *is* a regular grid, so handling non-square layouts was never needed.
 - **Fixed planning shape.** Four zones, six workers per day, three shifts. The
   rules are tuned for a grid roughly the size of the bundled example; very
   different grid sizes still produce a plan but may not hit every balance
